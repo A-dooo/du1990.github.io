@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="redux," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -90,17 +90,16 @@
 
 
 
-<meta name="description" content="当在github上打开redux时候，有一句很醒目的话： You Might Not Need Redux 文章中开头就说了，开发者为了做一个简单的功能，就需要三个文件来实现。如此麻烦？为什么还要使用redux呢？  而且使用redux还有众多的要求：  将应用对象状态描述为数组或对象； 将系统改变描述为对象； 将逻辑改变描述为纯函数；">
-<meta name="keywords" content="redux">
+<meta name="description" content="观察者模式是定义对象的一种一对多的依赖关系 ，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。  即该模式有一个发布的方法 和订阅的方法  比如要做一个用户操作，数据上报的功能。有一些基础数据，加上用户的操作数据，一起上报后台：构建如下:123456789101112131415161718192021const cresteEvent = ()=&amp;gt;&amp;#123;  let ini">
 <meta property="og:type" content="article">
-<meta property="og:title" content="由使用redux所想到的">
-<meta property="og:url" content="http://yoursite.com/2017/05/29/redux/index.html">
+<meta property="og:title" content="观察者模式，发布-订阅模式">
+<meta property="og:url" content="http://yoursite.com/2017/06/03/g/index.html">
 <meta property="og:site_name" content="琐碎小记">
-<meta property="og:description" content="当在github上打开redux时候，有一句很醒目的话： You Might Not Need Redux 文章中开头就说了，开发者为了做一个简单的功能，就需要三个文件来实现。如此麻烦？为什么还要使用redux呢？  而且使用redux还有众多的要求：  将应用对象状态描述为数组或对象； 将系统改变描述为对象； 将逻辑改变描述为纯函数；">
-<meta property="og:updated_time" content="2017-05-31T03:59:03.000Z">
+<meta property="og:description" content="观察者模式是定义对象的一种一对多的依赖关系 ，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。  即该模式有一个发布的方法 和订阅的方法  比如要做一个用户操作，数据上报的功能。有一些基础数据，加上用户的操作数据，一起上报后台：构建如下:123456789101112131415161718192021const cresteEvent = ()=&amp;gt;&amp;#123;  let ini">
+<meta property="og:updated_time" content="2017-06-03T03:55:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="由使用redux所想到的">
-<meta name="twitter:description" content="当在github上打开redux时候，有一句很醒目的话： You Might Not Need Redux 文章中开头就说了，开发者为了做一个简单的功能，就需要三个文件来实现。如此麻烦？为什么还要使用redux呢？  而且使用redux还有众多的要求：  将应用对象状态描述为数组或对象； 将系统改变描述为对象； 将逻辑改变描述为纯函数；">
+<meta name="twitter:title" content="观察者模式，发布-订阅模式">
+<meta name="twitter:description" content="观察者模式是定义对象的一种一对多的依赖关系 ，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。  即该模式有一个发布的方法 和订阅的方法  比如要做一个用户操作，数据上报的功能。有一些基础数据，加上用户的操作数据，一起上报后台：构建如下:123456789101112131415161718192021const cresteEvent = ()=&amp;gt;&amp;#123;  let ini">
 
 
 
@@ -128,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/29/redux/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/03/g/"/>
 
 
 
 
 
-  <title>由使用redux所想到的 | 琐碎小记</title>
+  <title>观察者模式，发布-订阅模式 | 琐碎小记</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/29/redux/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/03/g/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="C'est la vie">
@@ -271,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">由使用redux所想到的</h1>
+          <h1 class="post-title" itemprop="name headline">观察者模式，发布-订阅模式</h1>
         
 
         <div class="post-meta">
@@ -283,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-29T08:54:26+08:00">
-                2017-05-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-03T10:57:16+08:00">
+                2017-06-03
               </time>
             
 
@@ -318,31 +317,21 @@
       
 
       
-        <p> 当在<a href="https://github.com/reactjs/redux" target="_blank" rel="external">github</a>上打开redux时候，有一句很醒目的话：</p>
-<h5 id="You-Might-Not-Need-Redux"><a href="#You-Might-Not-Need-Redux" class="headerlink" title="You Might Not Need Redux"></a><a href="https://medium.com/@dan_abramov/you-might-not-need-redux-be46360cf367" target="_blank" rel="external">You Might Not Need Redux</a></h5><p> 文章中开头就说了，开发者为了做一个简单的功能，就需要三个文件来实现。如此麻烦？为什么还要使用redux呢？</p>
-<p> 而且使用redux还有众多的要求：</p>
-<ul>
-<li>将应用对象状态描述为数组或对象；</li>
-<li>将系统改变描述为对象；</li>
-<li>将逻辑改变描述为纯函数；<a id="more"></a>
-</li>
-</ul>
-<p>即全局store 用对象描述，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">let store = &#123;</div><div class="line">  //something;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>改变store需要通过dispatch(obj);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">let obj = &#123;</div><div class="line">  type:&apos;DOSOMETHING&apos;,</div><div class="line">  data</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>reducer 处理dispatch 的数据；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">const dosomething = (state = init,action) =&gt;&#123;</div><div class="line">  switch (action.type)&#123;</div><div class="line">    case &apos;DOSOMETHING&apos; :</div><div class="line">    return &#123;</div><div class="line">      ...state,</div><div class="line">      data:action.data</div><div class="line">    &#125;</div><div class="line">    default:</div><div class="line">    return state;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>reducer 使用纯函数。即固定输出对应固定的输出；</p>
-<p>只需要做一个小的功能需要写那么多的代码。而且无论使用react或是其他的都并没有这么多要求；那为什么还要用redux呢？ 使用redux让事情变的更加复杂，带来了什么好处呢？</p>
-<ul>
-<li>把 UI 和逻辑业务分离开来，能够充分重用很大一部分的逻辑代码；</li>
-<li>redux使用纯函数让代码变的更易维护和单元测试；</li>
-<li>实践旅行(time travel);在使用纯函数的条件下能够让不同的state和用户操作下的数据能够重现和展示；</li>
-<li>react是数据驱动视图；能够让视图的改变更易回溯来源；</li>
-<li>低耦合的代码让UI的重构不会影响；</li>
-</ul>
-<p>总之，redux是一种解决方案。使用的时候要明确的不仅仅是怎么使用；而是为什么要使用这个。<br>就像《You Might Not Need Redux》一文中最后说到：</p>
+        <p>观察者模式是定义对象的一种一对多的依赖关系 ，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。</p>
 <blockquote>
-<p>But if you trade something off, make sure you get something in return.</p>
+<p>即该模式有一个发布的方法 和订阅的方法</p>
 </blockquote>
+<p>比如要做一个用户操作，数据上报的功能。有一些基础数据，加上用户的操作数据，一起上报后台：<br>构建如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">const cresteEvent = ()=&gt;&#123;</div><div class="line"></div><div class="line">  let init = &#123;</div><div class="line">    location:[],</div><div class="line">    system : getSystem() // 获取操作系统;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  let listeners = [];  //事件存储;</div><div class="line"></div><div class="line">  const getState = () =&gt;&#123;&#125;; //获取状态;</div><div class="line"></div><div class="line">  const dispatch = () =&gt;&#123;&#125;;  //消息发布;</div><div class="line"></div><div class="line">  const subscribe = () =&gt;&#123;&#125;; //订阅;</div><div class="line"></div><div class="line">  return &#123;</div><div class="line">    dispatch,</div><div class="line">    getState,</div><div class="line">    subscribe</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+ <a id="more"></a>
+<h6 id="定义内部实现："><a href="#定义内部实现：" class="headerlink" title="定义内部实现："></a>定义内部实现：</h6><p> 获取状态,拿到init的引用；并把接口暴露出来；<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const getState = () =&gt;&#123;</div><div class="line">  return init;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>订阅事件 – 即数据上报:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const subscribe = (func) =&gt;&#123;</div><div class="line">  listenters.push(func);  //假定func 是function  故不做判断；</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>消息的发布–即用户每次的操作拿到临时数据,和初始数据的合并，合并完成后上报；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">const dispatch = (state,action) =&gt;&#123;</div><div class="line">  const obj = action(state,getState()) //合并数据;</div><div class="line">  listenters.forEach(listener=&gt;&#123;</div><div class="line">    listener(obj)   //依次执行订阅的事件;</div><div class="line">  &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>基础功能实现完毕.</p>
+<p>方法的调用:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">let event = cresteEvent();</div><div class="line"></div><div class="line">const updute = (obj)=&gt;&#123;</div><div class="line">  //上传接口;</div><div class="line">&#125;</div><div class="line"></div><div class="line">event.subscribe(update);  //订阅事件;</div><div class="line"></div><div class="line">// 用户某次操作后：</div><div class="line">event.dispatch(obj,(next,prev)=&gt;&#123;</div><div class="line">  return &#123;</div><div class="line">    ...prev,</div><div class="line">    ...next</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p> 一个简单的观察者模式就完成了，但是 既然有订阅事件。肯定可以退订的是吧？</p>
+<p> 那需要加一个退订的方法；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">const cresteEvent = ()=&gt;&#123;</div><div class="line"></div><div class="line">  ...  //省略</div><div class="line"></div><div class="line">  const subscribe = () =&gt;&#123;&#125;; //订阅;</div><div class="line"></div><div class="line">  const unsubscribe = (func) =&gt;&#123;</div><div class="line">    const num = listenters.indexOf(func);</div><div class="line">    if (num === -1)return;</div><div class="line">    listenters.splice(num,1);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  return &#123;</div><div class="line">    dispatch,</div><div class="line">    getState,</div><div class="line">    unsubscribe,</div><div class="line">    subscribe</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>如果需要退订，只需要：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">event.unsubscribe(update);</div></pre></td></tr></table></figure></p>
+<p>此种写法来源看redux源码的的模仿。</p>
 
       
     </div>
@@ -370,12 +359,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/redux/" rel="tag"># redux</a>
-          
-        </div>
-      
 
       
         
@@ -385,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/25/reduce/" rel="next" title="初探函数式编程  reduce">
-                <i class="fa fa-chevron-left"></i> 初探函数式编程  reduce
+              <a href="/2017/05/29/redux/" rel="next" title="由使用redux所想到的">
+                <i class="fa fa-chevron-left"></i> 由使用redux所想到的
               </a>
             
           </div>
@@ -394,10 +377,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/03/g/" rel="prev" title="观察者模式，发布-订阅模式">
-                观察者模式，发布-订阅模式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,7 +496,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#You-Might-Not-Need-Redux"><span class="nav-number">1.</span> <span class="nav-text">You Might Not Need Redux</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#定义内部实现："><span class="nav-number">1.</span> <span class="nav-text">定义内部实现：</span></a></li></ol></div>
             
 
           </div>
