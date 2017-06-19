@@ -97,7 +97,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/16/normal/index.html">
 <meta property="og:site_name" content="琐碎小记">
 <meta property="og:description" content="常用函数收集数值线性变换 输入定义域和值域 把给定的值等比缩放  12345678 const linearScale = (pMin,pMax)=&amp;gt;(min,max)=&amp;gt;x=&amp;gt;&amp;#123;   return (x - pMin) / (pMax - pMin) * (max - min) + min &amp;#125;;const range = linearScale(10,100">
-<meta property="og:updated_time" content="2017-06-19T01:34:53.000Z">
+<meta property="og:updated_time" content="2017-06-19T03:45:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用函数收集">
 <meta name="twitter:description" content="常用函数收集数值线性变换 输入定义域和值域 把给定的值等比缩放  12345678 const linearScale = (pMin,pMax)=&amp;gt;(min,max)=&amp;gt;x=&amp;gt;&amp;#123;   return (x - pMin) / (pMax - pMin) * (max - min) + min &amp;#125;;const range = linearScale(10,100">
@@ -331,6 +331,10 @@
 <p>a(x1,y1) b(x2,y2); 求p(x,y); i：弧度</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> controlPoint =(a,b,i = 6)=&gt;&#123;</div><div class="line"></div><div class="line"> const &#123;x1,y1&#125; = a;</div><div class="line"> const &#123;x2,y2&#125; = b;</div><div class="line"></div><div class="line"> const tan = Math.tan;</div><div class="line"> const rad = Math.PI / i;</div><div class="line"></div><div class="line"> const y = (x2 - x1) / 2 * tan(rad) + (y1 + y2) / 2;</div><div class="line"> const x = -(y2 - y1) / 2 * tan(rad)  + (x1 + x2) / 2;</div><div class="line"> return &#123;</div><div class="line">   x,</div><div class="line">   y</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h6 id="利用牛顿迭代法求平方根"><a href="#利用牛顿迭代法求平方根" class="headerlink" title="利用牛顿迭代法求平方根"></a>利用牛顿迭代法求平方根</h6><blockquote>
+<p>任意整数x，假定的平方根为y，如果不对或精度不够准确，令y = (y+x/y)/2。如此循环反复下去，y就会无限逼近x的平方根;</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">const sqrt = x =&gt;&#123;</div><div class="line">  let k = x;</div><div class="line">  while(k * k - x &gt; 1e-9)&#123;</div><div class="line">    k = 0.5 * ( k + x / k);</div><div class="line">  &#125;</div><div class="line">  return k;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>持续更新</p>
 </blockquote>
@@ -504,7 +508,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用函数收集"><span class="nav-number">1.</span> <span class="nav-text">常用函数收集</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#数值线性变换"><span class="nav-number">1.1.</span> <span class="nav-text">数值线性变换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三次贝塞尔曲线"><span class="nav-number">1.2.</span> <span class="nav-text">三次贝塞尔曲线</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#根据两点-起点和终点-确定第三点-控制点-的二次贝塞尔曲线"><span class="nav-number">1.3.</span> <span class="nav-text">根据两点(起点和终点)确定第三点(控制点)的二次贝塞尔曲线</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#常用函数收集"><span class="nav-number">1.</span> <span class="nav-text">常用函数收集</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#数值线性变换"><span class="nav-number">1.1.</span> <span class="nav-text">数值线性变换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三次贝塞尔曲线"><span class="nav-number">1.2.</span> <span class="nav-text">三次贝塞尔曲线</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#根据两点-起点和终点-确定第三点-控制点-的二次贝塞尔曲线"><span class="nav-number">1.3.</span> <span class="nav-text">根据两点(起点和终点)确定第三点(控制点)的二次贝塞尔曲线</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#利用牛顿迭代法求平方根"><span class="nav-number">1.4.</span> <span class="nav-text">利用牛顿迭代法求平方根</span></a></li></ol></li></ol></div>
             
 
           </div>
