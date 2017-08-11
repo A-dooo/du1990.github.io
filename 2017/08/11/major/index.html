@@ -1,0 +1,722 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="优化," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="一次的优化的过程和心理OS需求 在一次需求中，需要在地图中覆盖一层受贿地图；后端提供手绘地图的URL和Bounds(即手绘地图覆盖位置)，  在地图提供的api中，有ImageLayer这个属性，图片图层。so easy，直接照着api写就可以了。12345678roadImageLayer = new AMap.ImageLayer(&amp;#123;    url: url,    bounds:">
+<meta name="keywords" content="优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次优化">
+<meta property="og:url" content="http://yoursite.com/2017/08/11/major/index.html">
+<meta property="og:site_name" content="琐碎小记">
+<meta property="og:description" content="一次的优化的过程和心理OS需求 在一次需求中，需要在地图中覆盖一层受贿地图；后端提供手绘地图的URL和Bounds(即手绘地图覆盖位置)，  在地图提供的api中，有ImageLayer这个属性，图片图层。so easy，直接照着api写就可以了。12345678roadImageLayer = new AMap.ImageLayer(&amp;#123;    url: url,    bounds:">
+<meta property="og:updated_time" content="2017-08-11T09:04:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次优化">
+<meta name="twitter:description" content="一次的优化的过程和心理OS需求 在一次需求中，需要在地图中覆盖一层受贿地图；后端提供手绘地图的URL和Bounds(即手绘地图覆盖位置)，  在地图提供的api中，有ImageLayer这个属性，图片图层。so easy，直接照着api写就可以了。12345678roadImageLayer = new AMap.ImageLayer(&amp;#123;    url: url,    bounds:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/11/major/"/>
+
+
+
+
+
+  <title>记一次优化 | 琐碎小记</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">琐碎小记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">就命运而言，休论公道 -- 史铁生</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/major/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="C'est la vie">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/pic.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="琐碎小记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">记一次优化</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T15:54:40+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="一次的优化的过程和心理OS"><a href="#一次的优化的过程和心理OS" class="headerlink" title="一次的优化的过程和心理OS"></a>一次的优化的过程和心理OS</h5><h6 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h6><blockquote>
+<p>在一次需求中，需要在地图中覆盖一层受贿地图；后端提供手绘地图的URL和Bounds(即手绘地图覆盖位置)，</p>
+</blockquote>
+<p>在地图提供的api中，有ImageLayer这个属性，图片图层。so easy，直接照着api写就可以了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">roadImageLayer = new AMap.ImageLayer(&#123;</div><div class="line">    url: url,</div><div class="line">    bounds: BOUNDS,</div><div class="line">    map:map,</div><div class="line">    opacity:1,</div><div class="line">    zIndex:101,</div><div class="line">    id:&apos;road&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>ok，大功告成; chrome模拟手机测试没问题，bingo。任务完成~~<br> <a id="more"></a></p>
+<p>but,QA反应手机真机卡顿,频繁操作偶现崩溃；</p>
+<p>WTF，不应该啊。经排查一看，图片具有有4,5M;开启甩锅模式“图片太大了”。<br>…<br>..<br>.<br>因为要缩放，不能用缩略图。—- 想办法优化。</p>
+<h6 id="方案一：图片截取"><a href="#方案一：图片截取" class="headerlink" title="方案一：图片截取"></a>方案一：图片截取</h6><blockquote>
+<p>通过截图截取，然后，只显示屏幕内的；</p>
+</blockquote>
+<p>由于用的阿里云的服务，阿里提供了截图的功能，所以只需确定需要截取的部分就好了；</p>
+<p>步骤：</p>
+<ul>
+<li>计算图片的BOUNDS的像素坐标；</li>
+<li>计算图片左上角的像素坐标A；</li>
+<li>判断A点在屏幕的位置；</li>
+<li>计算该地图等级下的图片宽高与原图的比例；</li>
+<li>计算截取的部分；</li>
+<li>setimage；</li>
+</ul>
+<p>思路清晰就开始写代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">const getLtPoint = (lb,rt)=&gt;&#123;</div><div class="line">  let lbPix = getPix(lb);  //getPix(经纬度转化坐标)</div><div class="line">  let rtPix = getPix(rt);</div><div class="line">  let ltPix = [lbPix[0],rtPix[1]];</div><div class="line">  let lt = getlngLat(ltPix);  //getlngLat(坐标转化经纬度)</div><div class="line">  let disX = Math.abs(lbPix[0] - rtPix[0]);</div><div class="line">  let disY = Math.abs(lbPix[1] - rtPix[1]);</div><div class="line">  return &#123;</div><div class="line">    lt,</div><div class="line">    disX,</div><div class="line">    disY,</div><div class="line">    ltPix</div><div class="line">  &#125;;</div><div class="line">  ...  //省略</div><div class="line">  roadImageLayer.setImageUrl(ur);</div><div class="line">  roadImageLayer.setBounds(bounds);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>ok,测试貌似没有问题。等等，图片被拉伸了。 — 截取的图片尺寸与屏幕比例不和时候。由于setBounds时候会把图片拉伸铺满整个屏幕。</p>
+<p>新的问题：bounds不能直接取屏幕的bounds； 即要取图片和屏幕的重合部分矩形的bounds；</p>
+<p>有以下几种情况；</p>
+<ul>
+<li>屏幕全包含图片；</li>
+<li>屏幕和图片有一部分交集；</li>
+<li>图片全包含屏幕；</li>
+</ul>
+<p>OMG，刚漏掉了第二种情况；</p>
+<p>继续折腾第二种，这个貌似细分成很多种。。。<br>…<br>..<br>这个有点麻烦。要不换种方案？</p>
+<h6 id="方案二：本地截取，canvas绘制"><a href="#方案二：本地截取，canvas绘制" class="headerlink" title="方案二：本地截取，canvas绘制"></a>方案二：本地截取，canvas绘制</h6><p>地图还提供了一种CustomLayer 图层；可以自由绘制；<br>恰好： ctx.drawImage绘制图片 也提供了截取，缩放的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);</div></pre></td></tr></table></figure></p>
+<p>依然先逻辑分析，</p>
+<ul>
+<li>原图的顶点在屏幕内，</li>
+<li>原图的顶点在屏幕外，</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let pw,ph,iw,ih //原图的宽高 和屏幕的宽高已知；</div><div class="line">let lt = getLtPoint(lb,rt); // 以上方法求出原图的顶点坐标;</div></pre></td></tr></table></figure>
+<p>当顶点在屏幕内时候，lt.ltPix.x 以及lt.ltPix.y &gt; 0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">let x = lt.ltPix.x;</div><div class="line">let y = lt.ltPix.y;</div><div class="line">let scale  = ltPix.disX / pw //图片原始宽高和显示宽高比；</div><div class="line">let sw = pw - x;  //截取显示宽，高同理</div><div class="line">let _w = sw / scale  //截取的实际宽度,高同理；</div><div class="line">ctx.drawImage(img,0,0,_w,_h,x,y,sw,sh);</div></pre></td></tr></table></figure></p>
+<p>当顶点在屏幕外时候，lt.ltPix.x or lt.ltPix.y &lt; 0;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">let x = lt.ltPix.x;</div><div class="line">let y = lt.ltPix.y;</div><div class="line">let scale  = ltPix.disX / pw //图片原始宽高和显示宽高比；</div><div class="line"></div><div class="line">let sw = pw ;  //截取显示宽，高同理 ps(如长度超过图片原长，则截取到图尾)</div><div class="line">let _w = sw / scale  //截取的实际宽度,高同理；</div><div class="line">ctx.drawImage(img,-x,-y,_w,_h,0,0,sw,sh);</div></pre></td></tr></table></figure></p>
+<p>合并以及完整代码如下；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">var img= new Image();</div><div class="line">img.src = url;</div><div class="line">let flag,w,h;</div><div class="line">let cw = map.getSize().width;</div><div class="line">let ch = map.getSize().height;</div><div class="line">img.onload = function ()&#123;</div><div class="line">   flag = true;</div><div class="line">   w = img.width;</div><div class="line">   h = img.height;</div><div class="line">   onRender();</div><div class="line">&#125;</div><div class="line">cus.render = onRender;</div><div class="line">function onRender()&#123;</div><div class="line">  if (!flag) return;</div><div class="line">  // console.log(333);</div><div class="line">  var ctx = canvas.getContext(&apos;2d&apos;);</div><div class="line">  let obj = getLtPoint([97.20703125, 20.9614396141],[106.6333007812, 29.4778611958]); //测试用，固定写了一个bounds;</div><div class="line">  let lt = obj.ltPix;</div><div class="line">  let disX = obj.disX;</div><div class="line">  let x = lt[0];</div><div class="line">  let y = lt[1];</div><div class="line">  let scale = disX / w;</div><div class="line">  let _x = x &gt; 0 ? 0 : (0 - x) / scale;</div><div class="line">  let _y = y &gt; 0 ? 0 : (0 - y) / scale;</div><div class="line">  let sw = x &lt; 0 ? w : w - x;</div><div class="line">  let sh = y &lt; 0 ? h : h - x;</div><div class="line">  let _w = sw / scale;</div><div class="line">  let _h = sh / scale;</div><div class="line">  let px = x &gt; 0 ? x : 0;</div><div class="line">  let py = y &gt; 0 ? y : 0;</div><div class="line">  ctx.fillStyle = &apos;rgba(255, 255, 255, 0)&apos;; // 其他地方绘制透明;</div><div class="line">  ctx.clearRect(0,0,w,h);  每次清除画板;</div><div class="line">  ctx.drawImage(img,_x,_y,_w,_h,px,py,sw,sh);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>经测试，滑动如丝般流畅；，demo测试完毕。当然，项目中代码还需重新组织;</p>
+<p>ps:方法一的求两矩形的阴影未完成，所以没有代码。。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/优化/" rel="tag"># 优化</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/16/normal/" rel="next" title="常用函数收集">
+                <i class="fa fa-chevron-left"></i> 常用函数收集
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/pic.jpg"
+               alt="C'est la vie" />
+          <p class="site-author-name" itemprop="name">C'est la vie</p>
+           
+              <p class="site-description motion-element" itemprop="description">两件事读书养猫</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#一次的优化的过程和心理OS"><span class="nav-number">1.</span> <span class="nav-text">一次的优化的过程和心理OS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#需求"><span class="nav-number">1.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方案一：图片截取"><span class="nav-number">1.2.</span> <span class="nav-text">方案一：图片截取</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#方案二：本地截取，canvas绘制"><span class="nav-number">1.3.</span> <span class="nav-text">方案二：本地截取，canvas绘制</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">C'est la vie</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
