@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="react," />
 
 
 
@@ -90,16 +90,17 @@
 
 
 
-<meta name="description" content="hoc.mdtitle: react高阶组建的使用 tags:   react Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.即通过js的函数给组件添加逻辑，即高级组件；如：  123456789101112131415161">
+<meta name="description" content="Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.即通过js的函数给组件添加逻辑，即高级组件；如：  1234567891011121314151617181920212223242526272829303132    func">
+<meta name="keywords" content="react">
 <meta property="og:type" content="article">
-<meta property="og:title" content="琐碎小记">
+<meta property="og:title" content="react高阶组建的使用">
 <meta property="og:url" content="http://yoursite.com/2017/10/16/hoc/index.html">
 <meta property="og:site_name" content="琐碎小记">
-<meta property="og:description" content="hoc.mdtitle: react高阶组建的使用 tags:   react Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.即通过js的函数给组件添加逻辑，即高级组件；如：  123456789101112131415161">
-<meta property="og:updated_time" content="2017-10-16T08:42:17.000Z">
+<meta property="og:description" content="Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.即通过js的函数给组件添加逻辑，即高级组件；如：  1234567891011121314151617181920212223242526272829303132    func">
+<meta property="og:updated_time" content="2017-10-16T08:46:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="琐碎小记">
-<meta name="twitter:description" content="hoc.mdtitle: react高阶组建的使用 tags:   react Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.即通过js的函数给组件添加逻辑，即高级组件；如：  123456789101112131415161">
+<meta name="twitter:title" content="react高阶组建的使用">
+<meta name="twitter:description" content="Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.即通过js的函数给组件添加逻辑，即高级组件；如：  1234567891011121314151617181920212223242526272829303132    func">
 
 
 
@@ -133,7 +134,7 @@
 
 
 
-  <title> | 琐碎小记</title>
+  <title>react高阶组建的使用 | 琐碎小记</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">react高阶组建的使用</h1>
         
 
         <div class="post-meta">
@@ -317,8 +318,7 @@
       
 
       
-        <h2 id="hoc-md"><a href="#hoc-md" class="headerlink" title="hoc.md"></a>hoc.md</h2><p>title: react高阶组建的使用</p>
-<h2 id="tags-react"><a href="#tags-react" class="headerlink" title="tags:   react"></a>tags:   react</h2><blockquote>
+        <blockquote>
 <p>Higher-Order Components (HOCs) are JavaScript functions which add functionality to existing component classes.<br>即通过js的函数给组件添加逻辑，即高级组件；<br>如：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">    function Hoc (Com)&#123;</div><div class="line">        return function (fun)&#123;</div><div class="line">            return class C extends Compontent&#123;</div><div class="line">                constructor(props)&#123;</div><div class="line">                    super(props)&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                doSomething()&#123;</div><div class="line">                    // dosomething;</div><div class="line">                    fun()</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                render()&#123;</div><div class="line">                    return &lt;Com</div><div class="line">                        &#123;...this.props&#125;</div><div class="line">                    /&gt;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">// 调用方式</div><div class="line"></div><div class="line">const C = Hoc(Com)(fn);</div><div class="line"></div><div class="line">or</div><div class="line"></div><div class="line">const M = Hoc(com);</div><div class="line"></div><div class="line">cosnt M1 = M(fn1);</div><div class="line">const M2 = M(fn);</div></pre></td></tr></table></figure>
@@ -355,6 +355,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
       
 
       
@@ -420,17 +426,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/p.jpg"
@@ -483,22 +480,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hoc-md"><span class="nav-number">1.</span> <span class="nav-text">hoc.md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tags-react"><span class="nav-number">2.</span> <span class="nav-text">tags:   react</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
