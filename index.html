@@ -321,7 +321,7 @@
 
       
         
-          <p>#####变量提升<br>在es6之前的js没有块级作用域，只有全局（global,window)作用域和函数作用域；而在作用域里，所有的变量声明都会被提升到作用域顶端。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(a);</div><div class="line">var a = 1;</div><div class="line"> function fn()&#123;</div><div class="line">    console.log(b); //undefined</div><div class="line">    var b = 2;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+          <h5 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h5><p>在es6之前的js没有块级作用域，只有全局（global,window)作用域和函数作用域；而在作用域里，所有的变量声明都会被提升到作用域顶端。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">console.log(a);</div><div class="line">var a = 1;</div><div class="line"> function fn()&#123;</div><div class="line">    console.log(b); //undefined</div><div class="line">    var b = 2;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
 <p>每个函数都有一个执行环境（execution context); 与之关联的有一个环境变量。当函数执行时候，会创建一个作用域链(scope chain)…</p>
           <!--noindex-->
           <div class="post-button text-center">
