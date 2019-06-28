@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="http," />
+  <meta name="keywords" content="javascript,webpack," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="记一些http的… HTTP作为前端开发的重要基础知识。  HTTP协议简介 Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从客户端到服务器等一系列运作流程。而协议是指规则的约定。可以说，Web是建立在HTTP协议上通信的。  http协议作为tcp/ip协议的一个子集 了解http协议前">
-<meta name="keywords" content="http">
+<meta name="description" content="webpack4基础知识记录 webpack本质上一个javascript静态资源打包工具，当处理应用程序时候，内部构建依赖图（dependency graph），并生成单个或者多个模块(bundle)   入口（entry） 入口文件，应用程序入口七点，可以有单个或者多个。  输入(output) 写入的编译以后的文件，出口文件只能有一个  loader 用于模块转化，对资源进行预处理,即资">
+<meta name="keywords" content="javascript,webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="http以及其他">
-<meta property="og:url" content="http://yoursite.com/2019/05/24/http/index.html">
+<meta property="og:title" content="webpack基础知识之---查漏补缺">
+<meta property="og:url" content="http://yoursite.com/2019/06/26/webpack/index.html">
 <meta property="og:site_name" content="琐碎小记">
-<meta property="og:description" content="记一些http的… HTTP作为前端开发的重要基础知识。  HTTP协议简介 Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从客户端到服务器等一系列运作流程。而协议是指规则的约定。可以说，Web是建立在HTTP协议上通信的。  http协议作为tcp/ip协议的一个子集 了解http协议前">
-<meta property="og:updated_time" content="2019-05-27T02:12:41.007Z">
+<meta property="og:description" content="webpack4基础知识记录 webpack本质上一个javascript静态资源打包工具，当处理应用程序时候，内部构建依赖图（dependency graph），并生成单个或者多个模块(bundle)   入口（entry） 入口文件，应用程序入口七点，可以有单个或者多个。  输入(output) 写入的编译以后的文件，出口文件只能有一个  loader 用于模块转化，对资源进行预处理,即资">
+<meta property="og:updated_time" content="2019-06-28T02:42:03.827Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="http以及其他">
-<meta name="twitter:description" content="记一些http的… HTTP作为前端开发的重要基础知识。  HTTP协议简介 Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从客户端到服务器等一系列运作流程。而协议是指规则的约定。可以说，Web是建立在HTTP协议上通信的。  http协议作为tcp/ip协议的一个子集 了解http协议前">
+<meta name="twitter:title" content="webpack基础知识之---查漏补缺">
+<meta name="twitter:description" content="webpack4基础知识记录 webpack本质上一个javascript静态资源打包工具，当处理应用程序时候，内部构建依赖图（dependency graph），并生成单个或者多个模块(bundle)   入口（entry） 入口文件，应用程序入口七点，可以有单个或者多个。  输入(output) 写入的编译以后的文件，出口文件只能有一个  loader 用于模块转化，对资源进行预处理,即资">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/24/http/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/06/26/webpack/"/>
 
 
 
 
 
-  <title>http以及其他 | 琐碎小记</title>
+  <title>webpack基础知识之---查漏补缺 | 琐碎小记</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +254,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/http/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/26/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="C'est la vie">
@@ -271,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">http以及其他</h1>
+          <h1 class="post-title" itemprop="name headline">webpack基础知识之---查漏补缺</h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T10:56:59+08:00">
-                2019-05-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-26T11:06:36+08:00">
+                2019-06-26
               </time>
             
 
@@ -318,13 +318,60 @@
       
 
       
-        <h5 id="记一些http的…"><a href="#记一些http的…" class="headerlink" title="记一些http的…"></a>记一些http的…</h5><blockquote>
-<p>HTTP作为前端开发的重要基础知识。</p>
+        <h4 id="webpack4基础知识记录"><a href="#webpack4基础知识记录" class="headerlink" title="webpack4基础知识记录"></a>webpack4基础知识记录</h4><blockquote>
+<p>webpack本质上一个javascript静态资源打包工具，当处理应用程序时候，内部构建依赖图（dependency graph），并生成单个或者多个模块(bundle)</p>
 </blockquote>
-<h6 id="HTTP协议简介"><a href="#HTTP协议简介" class="headerlink" title="HTTP协议简介"></a>HTTP协议简介</h6><blockquote>
-<p>Web使用一种名为HTTP（HyperText Transfer Protocol，超文本传输协议）的协议作为规范，完成从客户端到服务器等一系列运作流程。而协议是指规则的约定。可以说，Web是建立在HTTP协议上通信的。</p>
-</blockquote>
-<p>http协议作为tcp/ip协议的一个子集 了解http协议前</p>
+<ul>
+<li><p>入口（entry）</p>
+<p>入口文件，应用程序入口七点，可以有单个或者多个。</p>
+</li>
+<li><p>输入(output)</p>
+<p>写入的编译以后的文件，出口文件只能有一个</p>
+</li>
+<li><p>loader</p>
+<p>用于模块转化，对资源进行预处理,即资源转化器，针对于文件本身。</p>
+</li>
+<li><p>插件(plugin)</p>
+<p>拓展webpack功能，针对于整个webpack流程。</p>
+</li>
+<li><p>模式(mode)</p>
+<p>webpack4分development和production，区别于开发和生产模式。</p>
+<a id="more"></a>
+<h4 id="一些常用概念"><a href="#一些常用概念" class="headerlink" title="一些常用概念"></a>一些常用概念</h4><ul>
+<li>output.publicPath:文件解析路径,相对于页面。</li>
+<li>output.path:文件输出路径。</li>
+<li>filename:入口文件生成的文件名。</li>
+<li>chunkFilename:入口文件之外的需要背打包的文件名。</li>
+<li>hash:项目级别，项目发生改变，hash就发生变。（在webpack4存疑）</li>
+<li>chunkhash: wepback根据入口构建chunk。该文件和依赖文件共享hash</li>
+<li>contenghash 文件本身hash，只和文件本身相关</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他常用知识"><a href="#其他常用知识" class="headerlink" title="其他常用知识"></a>其他常用知识</h4><ul>
+<li>loader<ul>
+<li>babel-loader</li>
+<li>css-loader</li>
+<li>sass-loader</li>
+<li>url-loader: file-loader增强版,常用处理文件引用</li>
+<li>less-loader</li>
+<li>postcss-loader: 添加浏览器前缀  </li>
+</ul>
+</li>
+<li>plugin<ul>
+<li>clean-webpack-plugin:清除文件。</li>
+<li>html-webpack-plugin:模版html</li>
+<li>copy-webpack-plugin:复制文件</li>
+<li>mini-css-extract-plugin:单独提取css</li>
+<li>DefinePlugin:添加环境变量</li>
+<li>HotModuleReplacementPlugin：热加载</li>
+<li>DllPlugin:提取公用文件</li>
+<li>DllReferencePlugin 加载公用文件。</li>
+<li>HappyPack:任务分解，多线程。</li>
+<li>purifycss-webpack  tree-shaking,清除无用css</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -354,7 +401,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"># http</a>
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
           
         </div>
       
@@ -367,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/15/clone/" rel="next" title="浅复制和深复制">
-                <i class="fa fa-chevron-left"></i> 浅复制和深复制
+              <a href="/2019/06/24/http/" rel="next" title="http以及其他">
+                <i class="fa fa-chevron-left"></i> http以及其他
               </a>
             
           </div>
@@ -376,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/12/learn/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -451,7 +496,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -464,7 +509,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -499,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#记一些http的…"><span class="nav-number">1.</span> <span class="nav-text">记一些http的…</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#HTTP协议简介"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP协议简介</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack4基础知识记录"><span class="nav-number">1.</span> <span class="nav-text">webpack4基础知识记录</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一些常用概念"><span class="nav-number">2.</span> <span class="nav-text">一些常用概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他常用知识"><span class="nav-number">3.</span> <span class="nav-text">其他常用知识</span></a></li></ol></div>
             
 
           </div>
