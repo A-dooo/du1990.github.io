@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="浅复制 浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。  一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。 而深度复制一般通过递归来实现，或者序列化。具体根据业务场景实现。example123456789var o = &amp;#123;    name:&amp;apos;l&amp;apos;,">
+<meta name="description" content="浅复制 浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。  一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。 基本类型和引用类型 在 ECMAScript种变量分为基本类型和引用类型  基本类型:undefined,null,Boolean,String,Number 统称Obje">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅复制和深复制">
 <meta property="og:url" content="http://yoursite.com/2017/11/15/clone/index.html">
 <meta property="og:site_name" content="琐碎小记">
-<meta property="og:description" content="浅复制 浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。  一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。 而深度复制一般通过递归来实现，或者序列化。具体根据业务场景实现。example123456789var o = &amp;#123;    name:&amp;apos;l&amp;apos;,">
-<meta property="og:updated_time" content="2018-01-05T02:03:11.911Z">
+<meta property="og:description" content="浅复制 浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。  一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。 基本类型和引用类型 在 ECMAScript种变量分为基本类型和引用类型  基本类型:undefined,null,Boolean,String,Number 统称Obje">
+<meta property="og:updated_time" content="2019-07-31T06:47:16.527Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅复制和深复制">
-<meta name="twitter:description" content="浅复制 浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。  一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。 而深度复制一般通过递归来实现，或者序列化。具体根据业务场景实现。example123456789var o = &amp;#123;    name:&amp;apos;l&amp;apos;,">
+<meta name="twitter:description" content="浅复制 浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。  一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。 基本类型和引用类型 在 ECMAScript种变量分为基本类型和引用类型  基本类型:undefined,null,Boolean,String,Number 统称Obje">
 
 
 
@@ -322,8 +322,21 @@
 <p>浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。</p>
 </blockquote>
 <p>一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。</p>
+<h5 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h5><blockquote>
+<p>在 ECMAScript种变量分为基本类型和引用类型</p>
+<ul>
+<li>基本类型:undefined,null,Boolean,String,Number</li>
+<li>统称Object，细分为Date，Object，Function，Array</li>
+</ul>
+</blockquote>
+<p>基本类型存储在栈内存中，分别存储了变量标识符和变量值。</p>
+ <a id="more"></a>
+<p>而应用类型数据存储在堆内存中，在栈内存中存储了变量标识符和堆内存中的内存地址。当访问数据时候，首先从栈中获得该对象的地址指针，然后再从对应的堆内存中取得所需的数据。</p>
+<p>所以在复制时候，基本类型把值拷贝了一份给新的变量。而引用类型，复制了指向堆内存的地址，指向了同一份数据。</p>
+<p>故深浅复制的区别是:复制的引用地址还是复制的实例。</p>
 <p>而深度复制一般通过递归来实现，或者序列化。<br>具体根据业务场景实现。<br>example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">    name:&apos;l&apos;,</div><div class="line">    age:5,</div><div class="line">    a:&#123;</div><div class="line">        b:9</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var o1 = JSON.parse(JSON.stringify(o)) 。</div></pre></td></tr></table></figure></p>
-<p>对于对象属性中没有Date,RegEXp,Function的类型的。可以简单通过序列化来实现。<br>… 未完</p>
+<p>对于对象属性中没有Date,RegEXp,Function的类型的。可以简单通过序列化来实现。<br>故实现基本的深度克隆首先需要判断类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">const isType = (obj)=&gt;&#123;</div><div class="line">    const regExp = &apos;[object RegExp]&apos;</div><div class="line">    const date = &apos;[object Date]&apos;</div><div class="line">    const Array = &apos;[object Array]&apos;</div><div class="line">    if(typeof obj !== &apos;object&apos;) return false</div><div class="line">    const type = Object.prototype.toString.call(obj)</div><div class="line">    if (regExp ===type) return &apos;regExp&apos;</div><div class="line">    if (date ===type) return &apos;date&apos;</div><div class="line">    if (Array ===type) return &apos;Array&apos;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后根据不同类型做不同判断<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//正则</div><div class="line">    new RegExp(value);</div><div class="line">//日期</div><div class="line">    new Date(value.getTime());</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -498,7 +511,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#浅复制"><span class="nav-number">1.</span> <span class="nav-text">浅复制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#浅复制"><span class="nav-number">1.</span> <span class="nav-text">浅复制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#基本类型和引用类型"><span class="nav-number">2.</span> <span class="nav-text">基本类型和引用类型</span></a></li></ol></div>
             
 
           </div>

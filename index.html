@@ -791,15 +791,25 @@
 
       
         
-          
-            <h5 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h5><blockquote>
+          <h5 id="浅复制"><a href="#浅复制" class="headerlink" title="浅复制"></a>浅复制</h5><blockquote>
 <p>浅复制和深复制一般特指针对Array和Object这类复杂对象。一般来说，浅复杂只复制一层对象属性；而深复制是递归所有层级。</p>
 </blockquote>
 <p>一般浅复制方法有Array的slice。Object的assgin以及es6的解构（…）。</p>
-<p>而深度复制一般通过递归来实现，或者序列化。<br>具体根据业务场景实现。<br>example<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var o = &#123;</div><div class="line">    name:&apos;l&apos;,</div><div class="line">    age:5,</div><div class="line">    a:&#123;</div><div class="line">        b:9</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var o1 = JSON.parse(JSON.stringify(o)) 。</div></pre></td></tr></table></figure></p>
-<p>对于对象属性中没有Date,RegEXp,Function的类型的。可以简单通过序列化来实现。<br>… 未完</p>
-
-          
+<h5 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h5><blockquote>
+<p>在 ECMAScript种变量分为基本类型和引用类型</p>
+<ul>
+<li>基本类型:undefined,null,Boolean,String,Number</li>
+<li>统称Object，细分为Date，Object，Function，Array</li>
+</ul>
+</blockquote>
+<p>基本类型存储在栈内存中，分别存储了变量标识符和变量值。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/15/clone/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
